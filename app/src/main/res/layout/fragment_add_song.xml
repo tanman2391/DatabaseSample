@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_text_song_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords"
+        android:hint="@string/hint_song_title" />
+
+    <EditText
+        android:id="@+id/edit_text_song_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords"
+        android:hint="@string/hint_song_artist" />
+
+    <EditText
+        android:id="@+id/edit_text_song_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:hint="@string/hint_song_url" />
+
+    <TextView
+        android:id="@+id/text_view_add_song_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:textColor="@color/colorErrorMessage"
+        android:text="@string/add_song_error_message"
+        tools:visibility="visible"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/text_view_add_song_url_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:textColor="@color/colorErrorMessage"
+        android:text="@string/add_song_url_error_message"
+        tools:visibility="visible"
+        android:visibility="gone" />
+
+</LinearLayout>
