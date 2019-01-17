@@ -2,11 +2,8 @@ package com.example.tanman.streamingapp.viewmodels;
 
 import android.app.Application;
 
-import com.example.tanman.streamingapp.daos.SongDao;
-import com.example.tanman.streamingapp.databases.SongDatabase;
 import com.example.tanman.streamingapp.entities.SongEntity;
-import com.example.tanman.streamingapp.tasks.DeleteAllSongAsyncTask;
-import com.example.tanman.streamingapp.tasks.DeleteSongAsyncTask;
+import com.example.tanman.streamingapp.repositories.SongListRepository;
 
 import java.util.List;
 
@@ -15,22 +12,21 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 public class SongViewModel extends AndroidViewModel {
-    private SongDao songDao;
+    private SongListRepository songRepo;
     private LiveData<List<SongEntity>> allSongs;
 
     public SongViewModel(@NonNull Application application) {
         super(application);
-        SongDatabase database = SongDatabase.getInstance(application);
-        songDao = database.songDao();
-        allSongs = songDao.getAllSongs();
+        songRepo = new SongListRepository(application);
+        allSongs = songRepo.getAllSongs();
     }
 
     public void delete(SongEntity song) {
-        new DeleteSongAsyncTask(songDao).execute(song);
+        songRepo.delete(song);
     }
 
     public void deleteAll() {
-        new DeleteAllSongAsyncTask(songDao).execute();
+        songRepo.deleteAll();
     }
 
     public LiveData<List<SongEntity>> getAllSongs() {

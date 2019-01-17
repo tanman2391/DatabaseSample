@@ -67,6 +67,7 @@ public class AddSongFragment extends Fragment {
     }
 
     private void addSong() {
+        //need to move this to the viewmodel
         String title = editsongTitle.getText().toString();
         String artist = editsongArtist.getText().toString();
         String url = editsongURL.getText().toString();
